@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Listing 5-1: Example usage of the $() function</title>
+        <script type="text/javascript" src="/js/prototype.js"></script>
+    </head>
+    <body>
+        <div id="my-example-div">
+            <form method="post" action="nowhere.html" name="f">
+                <input type="text" name="title" value="Example" id="form-title" />
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            // select the div and change its color to red
+            var exampleDiv = $('my-example-div');
+            exampleDiv.style.backgroundColor = '#f00';
+
+            // select the text input and show its value
+            var exampleInput = $('form-title');
+            alert(exampleInput.value);
+
+            // now select it again using its DOM path and show its value
+            var exampleInput = $(document.f.elements.title);
+            alert(exampleInput.value);
+        </script>
+    </body>
+</html>

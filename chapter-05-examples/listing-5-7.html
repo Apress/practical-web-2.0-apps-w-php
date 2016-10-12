@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>
+            Listing 5-7: The complete Ajax.Request example
+        </title>
+        <script type="text/javascript" src="/js/prototype.js"></script>
+    </head>
+    <body>
+        <div>
+            <input type="button" value="Load XML" id="load-xml" />
+        </div>
+
+        <script type="text/javascript">
+            function handleSuccess(transport)
+            {
+                var xml = transport.responseXML;
+                var people = $A(xml.documentElement.getElementsByTagName('person'));
+
+                var tpl = new Template('The age of #{name} is #{age}');
+
+                people.each(function(s, idx) {
+                    var data = {
+                        name : s.getAttribute('name'),
+                        age : s.getAttribute('age')
+                    };
+                    alert(tpl.evaluate(data));
+                });
+            }
+
+            function handleFailure(transport)
+            {
+                alert('Error: ' + transport.statusText);
+            }
+
+            function loadXml()
+            {
+                var url = 'listing-5-6.xml';
+                var options = {
+                    method    : 'get',
+                    onSuccess : handleSuccess,
+                    onFailure : handleFailure
+                };
+
+                new Ajax.Request(url, options);
+            }
+
+            Event.observe('load-xml', 'click', loadXml);
+        </script>
+    </body>
+</html>

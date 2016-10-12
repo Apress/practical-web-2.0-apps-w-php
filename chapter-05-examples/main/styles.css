@@ -1,0 +1,26 @@
+body {
+    margin : 0;
+    font-family : sans-serif;
+    font-size : 12px;
+}
+
+ul.sortable {
+    list-style-type : none; width : 300px; margin : 0; padding : 0;
+}
+
+ul.sortable li {
+    margin : 2px; padding : 5px; background : #eee; cursor : move;
+}
+
+#status-container {
+    color : #333; background : #f7f7f7; font-weight : bold; font-size : 11px;
+    border-bottom : 1px solid #666; padding : 3px;
+}
+
+#status {
+    font-weight : normal;
+}
+
+#content {
+    margin : 10px;
+}
